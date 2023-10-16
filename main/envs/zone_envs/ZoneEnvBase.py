@@ -231,6 +231,9 @@ class ZoneEnvBase(Engine):
                 offset += k_size
             obs = flat_obs
     
+        for space in obs:
+            obs[space] = obs[space].astype(np.float32)
+
         assert self.observation_space.contains(obs), f'Bad obs {obs} {self.observation_space}'
         return obs
 

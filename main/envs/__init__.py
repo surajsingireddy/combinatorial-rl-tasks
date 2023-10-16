@@ -80,6 +80,10 @@ config_zone_fixed_2 = {
     'robot_locations': [(0.8, 0.8)]
 }
 
+# my envs
+register(id='PointDQ-v0',
+         entry_point='envs.DungeonQuestEnv:DungeonQuestEnv',
+         kwargs={'config': config_point})
 
 
 #======== TSP Envs ================

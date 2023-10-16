@@ -9,7 +9,7 @@ def make_train_env(env_name, hier=False, num_training_tasks = 100, rng_seed = 0)
             return WaitWrapper(HierWrapper(FixedSeedsWrapper(env, min_seed=1, max_seed=num_training_tasks, rng_seed=rng_seed)))
         else:
             return FixedSeedsWrapper(env, min_seed=1, max_seed=num_training_tasks, rng_seed=rng_seed)
-    elif env_name in ['PointTSP-v0', 'PointTSP-v1', 'PointTSP-v2', 'PointTSP-v3', 'PointTTSP-v0', 'PointTTSP-v1', 'CarTSP-v0', 'DoggoTSP-v0', 'ColourMatch-v0']:
+    elif env_name in ['PointDQ-v0', 'PointTSP-v0', 'PointTSP-v1', 'PointTSP-v2', 'PointTSP-v3', 'PointTTSP-v0', 'PointTTSP-v1', 'CarTSP-v0', 'DoggoTSP-v0', 'ColourMatch-v0']:
         if hier:
             return WaitWrapper(ZoneWrapper(FixedSeedsWrapper(env, min_seed=1, max_seed=num_training_tasks, rng_seed=rng_seed)))
         else:
