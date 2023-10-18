@@ -5,7 +5,6 @@ import copy
 
 from zone_envs.ZoneEnvBase import ZoneEnvBase, zone
 
-
 visited = zone.Yellow
 unvisited = zone.Cyan
 class TSPEnv(ZoneEnvBase):

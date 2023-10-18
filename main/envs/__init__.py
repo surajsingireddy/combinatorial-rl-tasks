@@ -82,7 +82,7 @@ config_zone_fixed_2 = {
 
 # my envs
 register(id='PointDQ-v0',
-         entry_point='envs.DungeonQuestEnv:DungeonQuestEnv',
+         entry_point='envs.DungeonQuest_env:DungeonQuestEnv',
          kwargs={'config': config_point})
 
 

@@ -38,14 +38,16 @@ class DungeonQuestEnv(ZoneEnvBase):
 
     def build_zone_observation_space(self):
         for i, zone in enumerate(self.zones):
-            space = gym.spaces.Box(-np.inf, np.inf, (3,), dtype=np.float32)  # 3 = x,y,vis
+            space = gym.spaces.Box(-np.inf, np.inf, (7,), dtype=np.float32)  # 3 = x,y,vis
             self.obs_space_dict.update({f"zones_lidar_{i}": space})
 
     def obs_zones(self, obs):
         for i, z in enumerate(self.zones):
             pos = self.data.get_body_xpos(f"zone{i}").copy()[:2] / 3.
-            vis = z == visited
-            obs[f"zones_lidar_{i}"] = np.concatenate([[vis], pos])
+            # vis = z == visited
+            # obs[f"zones_lidar_{i}"] = np.concatenate([[vis], pos])
+            kind = np.eye(len(self.zone_types))[self.zone_types.index(z)]
+            obs[f"zones_lidar_{i}"] = np.concatenate([kind, pos])
 
     @property
     def reward_goal(self):
